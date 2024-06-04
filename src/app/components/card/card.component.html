@@ -1,0 +1,28 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-header d-flex justify-content-between">
+    {{contact?.firstName}} {{contact?.lastName}} <i
+      [ngClass]="{'bi bi-star-fill': contact?.isFavorite, 'bi bi-star': !contact?.isFavorite}"></i>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <i class="bi bi-calendar-heart-fill"></i> Data Nascimento: {{contact?.birthday}}
+    </li>
+    <li class="list-group-item">
+      <i class="bi bi-envelope-at-fill"></i> {{contact?.email}}
+    </li>
+    <li class="list-group-item">
+      <i class="bi bi-phone-fill"></i> Telefones:
+      @for (phone of getPhones(); track $index) {
+    <li class="list-group-item d-flex justify-content-between">
+      <span>
+        ({{phone?.codeArea}}) {{phone?.number}}
+      </span>
+      <span class="d-flex gap-2">
+        <i *ngIf="phone?.isWhatsapp" class="bi bi-whatsapp"></i>
+        <i *ngIf="phone?.isTelegram" class="bi bi-telegram"></i>
+      </span>
+    </li>
+    }
+    </li>
+  </ul>
+</div>
