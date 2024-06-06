@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0">Login</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="username">Usuário</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="bi bi-person"></i></span>
+                </div>
+                <input type="text" class="form-control" id="username" formControlName="username" placeholder="coloque seu usuário">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Senha</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="coloque sua senha">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Entrar</button>
+          </form>
+        </div>
+        <div class="card-footer">
+          <app-demo-credentials (credentialsCopied)="onCredentialsCopied($event)"></app-demo-credentials>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

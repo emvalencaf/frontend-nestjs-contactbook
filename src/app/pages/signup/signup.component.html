@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Sign Up</h2>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input id="firstName" formControlName="firstName" class="form-control" type="text">
+      <div *ngIf="signUpForm.get('firstName')?.invalid && signUpForm.get('firstName')?.touched">
+        First Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input id="lastName" formControlName="lastName" class="form-control" type="text">
+      <div *ngIf="signUpForm.get('lastName')?.invalid && signUpForm.get('lastName')?.touched">
+        Last Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" class="form-control" type="email">
+      <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
+        Valid Email is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" class="form-control" type="password">
+      <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
+        Password is required (min 6 characters)
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" formControlName="username" class="form-control" type="text">
+      <div *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
+        Username is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="birthday">Birthday</label>
+      <input id="birthday" formControlName="birthday" class="form-control" type="date">
+      <div *ngIf="signUpForm.get('birthday')?.invalid && signUpForm.get('birthday')?.touched">
+        Birthday is required
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">Sign Up</button>
+  </form>
+</div>
