@@ -1,0 +1,16 @@
+<div *ngIf="loading">
+  <p>Loading contacts...</p>
+</div>
+<div *ngIf="!loading && contacts.length > 0">
+  <div class="row">
+    <div class="col" *ngFor="let contact of contacts">
+      <app-card [contact]="contact" (contactDeleted)="onContactDeleted($event)"></app-card>
+    </div>
+  </div>
+</div>
+<div *ngIf="!loading && error">
+  <p>{{ error }}</p>
+</div>
+<div *ngIf="!loading && contacts.length === 0">
+  <p>No contacts found.</p>
+</div>

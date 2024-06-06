@@ -1,7 +1,7 @@
 <div class="card" style="width: 18rem;">
   <div class="card-header d-flex justify-content-between">
-    {{contact?.firstName}} {{contact?.lastName}} <i
-      [ngClass]="{'bi bi-star-fill': contact?.isFavorite, 'bi bi-star': !contact?.isFavorite}"></i>
+    {{contact?.firstName}} {{contact?.lastName}} <i (click)="updateFavorite()"
+      [ngClass]="{'bi bi-star-fill': contact?.isFavorite, 'bi bi-star': !contact?.isFavorite}" class="user-select-auto cursor-pointer"></i>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
@@ -18,11 +18,14 @@
         ({{phone?.codeArea}}) {{phone?.number}}
       </span>
       <span class="d-flex gap-2">
-        <i *ngIf="phone?.isWhatsapp" class="bi bi-whatsapp"></i>
-        <i *ngIf="phone?.isTelegram" class="bi bi-telegram"></i>
+        <i *ngIf="phone?.isWhatsapp" class="bi bi-whatsapp user-select-auto cursor-pointer"></i>
+        <i *ngIf="phone?.isTelegram" class="bi bi-telegram user-select-auto cursor-pointer"></i>
       </span>
     </li>
     }
     </li>
   </ul>
+  <div class="card-header d-flex justify-content-between">
+    <i class="bi bi-trash3-fill user-select-auto" (click)="delete()"></i><i class="bi bi-pencil-square user-select-auto"></i>
+  </div>
 </div>
