@@ -13,6 +13,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListCardComponent } from './components/list-card/list-card.component';
 import { ListCardFavComponent } from './components/list-card-fav/list-card-fav.component';
+import { RegisterContactComponent } from './pages/registercontact/register-contact.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ListCardFavComponent } from './components/list-card-fav/list-card-fav.c
     HomeComponent,
     ListCardComponent,
     ListCardFavComponent,
+    RegisterContactComponent,
   ],
   imports: [
     BrowserModule,

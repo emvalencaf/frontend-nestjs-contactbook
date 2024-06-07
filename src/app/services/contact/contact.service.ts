@@ -6,12 +6,24 @@ import { Contact } from '../../models/contact.model';
 import { map } from 'rxjs/operators';
 import { ReturnedSignInResponse } from '../../models/returned-sign-in.model';
 import { ReturnedResponse } from '../../models/returned-response-service.model';
+import { RegisterContact } from '../../models/register-contact.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
   constructor(private readonly http: HttpClient, private readonly authService: AuthService) { }
+
+
+  addContact(contact: RegisterContact) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    });
+
+    return this.http.post<ReturnedResponse<Contact>>(`${environment.apiUrl}/contacts`, contact, { headers })
+      .pipe(map(res => res.result));
+  }
 
   getContacts() {
     const headers = new HttpHeaders({

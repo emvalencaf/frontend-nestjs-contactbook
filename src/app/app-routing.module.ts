@@ -4,7 +4,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { authGuard } from './guards/auth.guard';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
-
+import { RegisterContactComponent } from './pages/registercontact/register-contact.component';
 export const routes: Routes = [
   {
     path:"sign-in", component: SigninComponent, canActivate: [authGuard],
@@ -13,7 +13,10 @@ export const routes: Routes = [
     path:"sign-up", component: SignupComponent, canActivate:[authGuard],
   },
   {
-    path:'', component: HomeComponent,canActivate:[authGuard],
+    path: 'register-contact', component: RegisterContactComponent, canActivate:[authGuard],
+  },
+  {
+    path:'', component: HomeComponent, canActivate:[authGuard],
   },
   {
     path: '**', redirectTo: '', canActivate: [authGuard],
