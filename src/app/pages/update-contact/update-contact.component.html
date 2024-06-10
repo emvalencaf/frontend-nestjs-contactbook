@@ -1,0 +1,33 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" class="form-control" formControlName="firstName" required>
+    <div class="invalid-feedback" *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched">
+      First Name é obrigatório.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" class="form-control" formControlName="lastName" required>
+    <div class="invalid-feedback" *ngIf="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched">
+      Last Name é obrigatório.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" class="form-control" formControlName="birthday" required>
+    <div class="invalid-feedback" *ngIf="contactForm.get('birthday')?.invalid && contactForm.get('birthday')?.touched">
+      Birthday é obrigatório.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" class="form-control" formControlName="email" required>
+    <div class="invalid-feedback" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+      Email inválido ou obrigatório.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Salvar Contato</button>
+
+</form>
