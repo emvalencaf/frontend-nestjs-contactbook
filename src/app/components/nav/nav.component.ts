@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -7,7 +8,7 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
-  constructor(private readonly authService: AuthService) {
+  constructor(private readonly authService: AuthService, private readonly router: Router) {
 
   }
 
@@ -16,7 +17,8 @@ export class NavComponent {
   }
 
   signOut () {
-    return this.authService.signout();
+    this.authService.signout();
+    this.router.navigate(['/sign-in']);
   }
 
 }

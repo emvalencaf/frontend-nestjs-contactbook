@@ -12,8 +12,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListCardComponent } from './components/list-card/list-card.component';
-import { ListCardFavComponent } from './components/list-card-fav/list-card-fav.component';
 import { RegisterContactComponent } from './pages/registercontact/register-contact.component';
+import { UpdateContactComponent } from './pages/update-contact/update-contact.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { RegisterContactComponent } from './pages/registercontact/register-conta
     SignupComponent,
     HomeComponent,
     ListCardComponent,
-    ListCardFavComponent,
     RegisterContactComponent,
+    UpdateContactComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Contact } from '../../models/contact.model';
 import { ContactPhone } from '../../models/contact-phone.model';
 import { ContactService } from '../../services/contact/contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -10,7 +11,7 @@ import { ContactService } from '../../services/contact/contact.service';
 export class CardComponent {
   @Output() contactDeleted = new EventEmitter<number>();
   @Input() contact: Contact | null = null;
-  constructor(private readonly contactService: ContactService) {}
+  constructor(private readonly contactService: ContactService, private readonly router: Router) {}
 
   getPhones(): ContactPhone[] | undefined | null {
     return this.contact?.phones;
@@ -25,6 +26,12 @@ export class CardComponent {
       console.error('Erro ao deletar o contato', err);
       alert('Erro ao deletar');
     });
+  }
+
+  updateContact() {
+    if (!this.contact?.id) return alert("Nenhum id foi atrelado ao contato");
+
+    this.router.navigate([`/update-contact/${this.contact.id}`]);
   }
 
   updateFavorite() {
